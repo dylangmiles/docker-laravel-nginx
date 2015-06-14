@@ -1,6 +1,6 @@
 FROM debian:jessie
 
-MAINTAINER "Dylan Lindgren" <dylan.lindgren@gmail.com>
+MAINTAINER "Dylan Miles" <dylan.g.miles@gmail.com>
 
 WORKDIR /tmp
 
@@ -18,7 +18,8 @@ RUN ln -s /etc/nginx/sites-available/laravel /etc/nginx/sites-enabled/laravel &&
 ADD config/nginx-start.sh /opt/bin/nginx-start.sh
 RUN chmod u=rwx /opt/bin/nginx-start.sh
 
-RUN mkdir -p /data
+RUN mkdir -p /data/web
+RUN chown www-data:www-data /data/web
 VOLUME ["/data"]
 
 # PORTS
